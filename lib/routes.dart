@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/my_list.dart';
+import 'screens/tab_demo.dart';
 import 'screens/test.dart';
 import 'screens/animated_list.dart';
 import 'screens/friendly-chat-app.dart';
@@ -33,6 +34,11 @@ final screens = [
     name: MyList.name,
     route: MyList.routeName,
     builder: (context) => MyList(),
+  ),
+  SampleRoute(
+    name: TabDemo.name,
+    route: TabDemo.routeName,
+    builder: (context) => TabDemo(),
   ),
 ];
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sliver_demo.dart';
 
 /* 列表示例 */
 class MyList extends StatelessWidget {
@@ -53,7 +54,15 @@ class MyList extends StatelessWidget {
               },
               icon: Icon(Icons.ac_unit_rounded),
               label: Text("长列表"),
-            )
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SliverDemo();
+                }));
+              },
+              child: Text('Sliver'),
+            ),
           ],
         ),
       ),
