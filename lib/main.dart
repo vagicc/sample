@@ -16,7 +16,7 @@ class SampleApp extends StatelessWidget {
     return MaterialApp(
       title: "Sample App",
       theme: ThemeData(
-        primarySwatch: Colors.lightGreen, //主题颜色
+        primarySwatch: Colors.purple, //主题颜色
         // visualDensity: VisualDensity.adaptivePlatformDensity, //视觉密度
         // fontFamily: 'GenWanMinTW', //全局使用字体:源云明体 比案桌原字体淡一点
       ),
@@ -74,7 +74,6 @@ class SampleDemo extends StatelessWidget {
             color: Colors.amber[100],
             child: const Center(child: Text('Entry C')),
           ),
-         
         ],
       ),
     );
@@ -83,6 +82,7 @@ class SampleDemo extends StatelessWidget {
 
 /* 单个列表样式 */
 class RouteList extends StatelessWidget {
+  static int listNum = 1;
   final SampleRoute sampleRoute;
   const RouteList({Key? key, required this.sampleRoute}) : super(key: key);
 
@@ -91,11 +91,22 @@ class RouteList extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
-    return ElevatedButton(
-      style: style,
-      onPressed: () => Navigator.pushNamed(context, sampleRoute.route),
-      child: Text(sampleRoute.name),
-    );
+    /* 按奇偶返回不同按纽 */
+    Widget returnButton = (++listNum % 2 != 1)
+        ? ElevatedButton(
+            // style: style,
+            onPressed: () => Navigator.pushNamed(context, sampleRoute.route),
+            child: Text(sampleRoute.name),
+          )
+        : OutlinedButton(
+            child: Text(sampleRoute.name),
+            onPressed: () {
+              Navigator.pushNamed(context, sampleRoute.route);
+            },
+          );
+    // print("listNum % 2 = ${listNum % 2}");
+
+    return returnButton;
   }
 }
 

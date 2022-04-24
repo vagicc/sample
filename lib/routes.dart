@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'screens/my_list.dart';
 import 'screens/test.dart';
 import 'screens/animated_list.dart';
+import 'screens/friendly-chat-app.dart';
 
 class SampleRoute {
   final String name; //名字说明
@@ -15,14 +17,23 @@ final screens = [
   SampleRoute(
     name: AnimatedListRoute.name,
     route: AnimatedListRoute.routeName,
-    builder: (context) => AnimatedListRoute(),
+    builder: (context) => const AnimatedListRoute(),
   ),
   SampleRoute(
     name: Test.name,
     route: Test.routeName,
-    builder: (context) => Test(),
+    builder: (context) => const Test(),
   ),
-  
+  SampleRoute(
+    name: FriendlyChatApp.name,
+    route: FriendlyChatApp.routeName,
+    builder: (context) => FriendlyChatApp(),
+  ),
+  SampleRoute(
+    name: MyList.name,
+    route: MyList.routeName,
+    builder: (context) => MyList(),
+  ),
 ];
 
 final screensRoutes = Map.fromEntries(
